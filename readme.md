@@ -7,6 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Set Up to Todo App
+
+    - run in te terminal composer install
+    - after cp -r .env.example .env and configure .env based in te steak
+    - after php artisan jwt:secret
+    - after initialize te definitions for application, execute php artisan key:generate in te terminal
+    - after execute php artisan migrate for up migration give application
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

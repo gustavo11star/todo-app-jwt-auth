@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  mariadb:
+    image: 'bitnami/mariadb:latest'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=api
+      - MARIADB_DATABASE=api
+      - MARIADB_PASSWORD=secret
+
+  web:
+    tty: true
+    image: bitnami/laravel:5-debian-9
+    environment:
+      - DB_HOST=mariadb
+      - DB_USERNAME=api
+      - DB_DATABASE=api
+      - DB_PASSWORD=secret
+    depends_on:
+      - mariadb
+    ports:
+      - 80:3000
+    volumes:
+      - ./:/app
