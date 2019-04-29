@@ -17,14 +17,18 @@
 //     return $request->user();
 // });
 
-Route::post('register', 'AuthController@register');
 Route::post('login', 'AuthController@login');
-Route::post('recover', 'AuthController@recover');
 
 Route::group(['middleware' => ['jwt.auth']], function() {
+    
+    Route::post('register', 'AuthController@register');
+    
     Route::get('logout', 'AuthController@logout');
+    
     Route::get('test', function(){
         return response()->json(['foo'=>'bar']);
     });
+
     Route::resource('tasks','TasksController');
+
 });
